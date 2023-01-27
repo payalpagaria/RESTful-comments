@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Comments</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+</head>
+<body>
+    <h1 class="is-size-1 has-text-centered"><%= Day %></h1>
+    <p class="is-size-3 has-text-centered">All Comments</p>
+
+    <% for(let i=0;i<comments.length;i++ ){ %>
+    <div class="box">
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                  <p class="has-text-justified	is-family-sans-serif">
+                    <strong><%=comments[i].username %></strong>  
+                    <br>
+                    <%=comments[i].comment%>
+                  </p>
+                </div>
+          </article>
+    </div>
+    <% } %>
+    <form action="/" method="post">
+        <label class="is-size-5">Enter username</label>
+        <input class="input" type="text" placeholder="Text input" name="username" autocomplete="off">
+        <label class="is-size-5">Enter Comment</label>
+        <textarea class="textarea" placeholder="e.g. Hello world" name="comment" autocomplete="off"></textarea>
+        <button class="button">Add comment</button>
+
+    </form>
+
+
+
+    
+</body>
+</html>
