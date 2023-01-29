@@ -9,35 +9,34 @@
 
 </head>
 <body>
-    <% for(let i=0;i<comments.length;i++ ){ %>
-        <% if(prid===comments[i].id){%>
-            <div class="card">
-                <header class="card-header">
-                    <div class="card-header-title">
-                        <p><strong><%=comments[i].username %>'s Comment</strong></p>
-                    <br>
-                    </div>
-                </header>
-            <div class="card-content">
-                <div class="content">
-                   <p class="title">"<%=comments[i].comment%>""
-                   </p>
-                </div>
-        
-            </div>
-            <p class="card-footer-item">
-                <span>
-                  Back To Homepage :<a href="/">back</a>
-                </span>
-              </p>
-            </footer>
-          
-        
-            </div>
-            <%}%>
-            <%}%>
+    <div class="card">
+        <header class="card-header">
+            <div class="card-header-title">
+                <p><strong><%=comm.username %>'s Comment</strong></p>
+            
+            <br>
 
+            </div>
+        </header>
+    <div class="card-content">
+        <div class="content">
+            <p><strong>ID : <%=comm.id %></strong></p>
 
+           <p class="title">"<%=comm.comment%>"
+           </p>
+
+        </div>
+
+    </div>
+    <p class="card-footer-item">
+        <span>
+          Back To Homepage :<a href="/">back</a>
+        </span>
+      </p>
+    </footer>
+  
+
+    </div>
     
 </body>
 </html>
