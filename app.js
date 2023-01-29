@@ -19,7 +19,16 @@ app.post('/',(req,res)=>{
 })
 app.get("/:id",(req,res)=>{
     const comment_id=req.params.id;
-    res.render('show',{prid:comment_id,comments:commentList});
+    const comm=commentList.find(c=>c.id===comment_id);
+
+    res.render('show',{comm});
+})
+app.patch("/:id",(req,res)=>{
+    const comment_id=req.params.id;
+    const comm=commentList.find(c=>c.id===comment_id);
+    comm.comment=req.body.comment;
+    res.send(comm.username);
+    res.redirect('/');
 })
 function getdate(){
     let date=new Date();
