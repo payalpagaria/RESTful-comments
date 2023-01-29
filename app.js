@@ -10,6 +10,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.get('/',(req,res)=>{
     res.render('all',{Day:getdate(),comments:commentList});
 })
+app.get('/newcomment',(req,res)=>{
+    res.render('new',{Day:getdate()});
+    res.redirect('/');
+
+})
 app.post('/',(req,res)=>{
     let com_id=v4();
     let name=req.body.username;
