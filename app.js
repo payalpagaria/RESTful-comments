@@ -35,6 +35,13 @@ app.patch("/:id",(req,res)=>{
     res.send(comm.username);
     res.redirect('/');
 })
+app.get("/:id/edit",(req,res)=>{
+    const comment_id=req.params.id;
+    const comm=commentList.find(c=>c.id===comment_id);
+    res.render('edit',{comm});
+
+
+})
 function getdate(){
     let date=new Date();
     const option={
