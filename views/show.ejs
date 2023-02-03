@@ -32,14 +32,19 @@
         <span>
           Back To Homepage : <a href="/"> Back To Home</a>
         </span>
+        <br>
         <span>
             Edit : <a href="/<%=comm.id %>/edit"> edit</a>
           </span>
+          
       </p>
     </footer>
-  
-
+    
     </div>
+    <form method="post" action="/<%=comm.id %>/?_method=Delete">
+        <button class="button">Delete</button>
+    </form>
+
     
 </body>
 </html>
