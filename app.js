@@ -5,7 +5,7 @@ import methodOverride from "method-override";
 
 const PORT=3000;
 const app=Express();
-const commentList=[]
+let commentList=[]
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'))
@@ -43,6 +43,11 @@ app.patch("/:id",(req,res)=>{
     const newcomm=req.body.comment;
     const comm=commentList.find(c=>c.id===comment_id);
     comm.comment=newcomm;
+    res.redirect('/');
+})
+app.delete("/:id",(req,res)=>{
+    const comment_id=req.params.id;
+    commentList=commentList.filter((c)=>c.id!==comment_id)
     res.redirect('/');
 })
 function getdate(){
