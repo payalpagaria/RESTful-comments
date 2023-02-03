@@ -10,7 +10,9 @@
 <body>
     <form method="post" action="/<%=comm.id %>/?_method=PATCH">
     <label>Edit a comment</label>
-    <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+    <textarea class="textarea" placeholder="e.g. Hello world" name="comment">
+        
+    </textarea>
     <button class="button">Edit comment</button>
 </form>
 </body>
