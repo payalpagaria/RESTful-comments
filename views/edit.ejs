@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
+    <form method="post" action="/<%=comm.id %>/?_method=PATCH">
     <label>Edit a comment</label>
     <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
-
+    <button class="button">Edit comment</button>
+</form>
 </body>
 </html>

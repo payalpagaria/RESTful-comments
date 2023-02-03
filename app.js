@@ -1,12 +1,14 @@
 import  Express  from "express";
 import bodyParser from "body-parser";
 import { v4 } from "uuid";
+import methodOverride from "method-override";
 
 const PORT=3000;
 const app=Express();
 const commentList=[]
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(methodOverride('_method'))
 app.get('/',(req,res)=>{
     res.render('all',{Day:getdate(),comments:commentList});
 })
@@ -28,19 +30,20 @@ app.get("/:id",(req,res)=>{
 
     res.render('show',{comm});
 })
-app.patch("/:id",(req,res)=>{
-    const comment_id=req.params.id;
-    const comm=commentList.find(c=>c.id===comment_id);
-    comm.comment=req.body.comment;
-    res.send(comm.username);
-    res.redirect('/');
-})
+
 app.get("/:id/edit",(req,res)=>{
     const comment_id=req.params.id;
     const comm=commentList.find(c=>c.id===comment_id);
     res.render('edit',{comm});
 
 
+})
+app.patch("/:id",(req,res)=>{
+    const comment_id=req.params.id;
+    const newcomm=req.body.comment;
+    const comm=commentList.find(c=>c.id===comment_id);
+    comm.comment=newcomm;
+    res.redirect('/');
 })
 function getdate(){
     let date=new Date();
